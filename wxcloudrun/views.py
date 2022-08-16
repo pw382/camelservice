@@ -91,6 +91,6 @@ def update_count(request):
                     json_dumps_params={'ensure_ascii': False})
 
 import requests
-def test_external_request(request: HttpRequest):
+def test_external_request(request):
     r = requests.get("https://www.baidu.com/")
     return HttpResponse(r.text, content_type="text/plain")
