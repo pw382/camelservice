@@ -1,5 +1,6 @@
 import json
 import logging
+import requests
 
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -48,7 +49,8 @@ def get_count():
     except Counters.DoesNotExist:
         return JsonResponse({'code': 0, 'data': 0},
                     json_dumps_params={'ensure_ascii': False})
-    return JsonResponse({'code': 0, 'data': data.count},
+    b = requests.get("https://www.baidu.com/")
+    return JsonResponse({'code': 0, 'data': data.count, 'bd': b.text[:100]},
                         json_dumps_params={'ensure_ascii': False})
 
 
@@ -90,7 +92,4 @@ def update_count(request):
         return JsonResponse({'code': -1, 'errorMsg': 'action参数错误'},
                     json_dumps_params={'ensure_ascii': False})
 
-import requests
-def test_external_request(request):
-    r = requests.get("https://www.baidu.com/")
-    return HttpResponse(r.text, content_type="text/plain")
+
