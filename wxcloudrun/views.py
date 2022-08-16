@@ -93,4 +93,4 @@ def update_count(request):
 import requests
 def test_external_request(request: HttpRequest):
     r = requests.get("https://www.baidu.com/")
-    return HttpResponse(r.text, content_type="text/plain"
+    return HttpResponse(r.text, content_type="text/plain")
