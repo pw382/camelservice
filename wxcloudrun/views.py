@@ -16,7 +16,6 @@ def index(request, _):
 
      `` request `` 请求对象
     """
-
     return render(request, 'index.html')
 
 
@@ -29,7 +28,7 @@ def counter(request, _):
 
     rsp = JsonResponse({'code': 0, 'errorMsg': ''}, json_dumps_params={'ensure_ascii': False})
     if request.method == 'GET' or request.method == 'get':
-        rsp = get_count()
+        rsp = get_count(request)
     elif request.method == 'POST' or request.method == 'post':
         rsp = update_count(request)
     else:
@@ -39,7 +38,7 @@ def counter(request, _):
     return rsp
 
 
-def get_count():
+def get_count(request):
     """
     获取当前计数
     """
@@ -49,9 +48,16 @@ def get_count():
     except Counters.DoesNotExist:
         return JsonResponse({'code': 0, 'data': 0},
                     json_dumps_params={'ensure_ascii': False})
-    b = requests.get("https://www.baidu.com/")
-    return JsonResponse({'code': 0, 'data': data.count, 'bd': b.text[:100]},
-                        json_dumps_params={'ensure_ascii': False})
+    # b = requests.get("https://www.baidu.com/")
+    # logger.info("baidu snippet: %s", b.text[:1000])
+    logger.info(request.headers)
+    return JsonResponse(
+        {
+            'code': 0,
+            'data': data.count,
+        },
+        json_dumps_params={'ensure_ascii': False}
+    )
 
 
 def update_count(request):
