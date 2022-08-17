@@ -106,8 +106,8 @@ def push(request, _):
         "page": "pages/index",
         "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
         "data": {
-            "thing1": { "value": "value1"},
-            "date2": { "value": "2022-08-17 13:01"}
+            "thing1": { "value": "40.8Kg"},
+            "date2": { "value": "2017年01月15日 12:00"}
             },
         "miniprogram_state": "trial",
         "lang": "zh_CN"
