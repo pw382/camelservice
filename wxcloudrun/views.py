@@ -100,14 +100,15 @@ def update_count(request):
 
 
 def push(request, _):
-    resp = requests.post("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send",
-        data = {
-            "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
-            "msgtype": "text",
-            "text": {
-                "content": "Hello Msg"
-            }
-        })
+    data = {
+        "template_id": "Akw6PSGAcqzp0Ws12sv_Ug1HFaWRhS-6r2hJO0GezQo",
+        "page": "pages/index",
+        "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
+        "data": "data1",
+        "miniprogram_state": "trial",
+        "lang": "zh_CN"
+    }
+    resp = requests.post("https://api.weixin.qq.com/cgi-bin/message/subscribe/send", data=data)
     # logger.info("push msg response: " + str(resp.status_code))
     # return resp
-    return JsonResponse({'code': 0, 'weixin response': resp.json()})
+    return JsonResponse({'code': 0, 'push_data': data, 'weixin response': resp.json()})
