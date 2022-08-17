@@ -105,7 +105,7 @@ def push(request, _):
         "template_id": "Akw6PSGAcqzp0Ws12sv_Ug1HFaWRhS-6r2hJO0GezQo",
         "page": "pages/index",
         "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
-        "data": json.dumps({
+        "data": str({
             "thing1": { "value": "40.8Kg"},
             "date2": { "value": "2017年01月15日 12:00"}
             }),
