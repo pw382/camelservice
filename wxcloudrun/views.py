@@ -99,3 +99,15 @@ def update_count(request):
                     json_dumps_params={'ensure_ascii': False})
 
 
+def push(request, _):
+    resp = requests.post("https://api.weixin.qq.com/cgi-bin/message/wxopen/template/uniform_send",
+        data = {
+            "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
+            "msgtype": "text",
+            "text": {
+                "content": "Hello Msg"
+            }
+        })
+    # logger.info("push msg response: " + str(resp.status_code))
+    # return resp
+    return JsonResponse({'code': 0, 'weixin response': resp.json()})

@@ -21,7 +21,7 @@ from django.urls import path
 urlpatterns = (
     # 计数器接口
     url(r'^^api/count(/)?$', views.counter),
-
+    url(r'^^api/push(/)?$', views.push),
     # 获取主页
     url(r'(/)?$', views.index),
 )
