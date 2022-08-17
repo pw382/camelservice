@@ -105,7 +105,10 @@ def push(request, _):
         "template_id": "Akw6PSGAcqzp0Ws12sv_Ug1HFaWRhS-6r2hJO0GezQo",
         "page": "pages/index",
         "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
-        "data": json.dumps({"thing1": { "value": "value1"}, "date2": { "value": "value2"} }),
+        "data": json.dumps({
+            "thing1": { "value": "value1"},
+            "date2": { "value": "2022-08-17 13:01"}
+            }),
         "miniprogram_state": "trial",
         "lang": "zh_CN"
     }
