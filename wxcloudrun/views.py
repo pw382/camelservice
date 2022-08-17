@@ -104,7 +104,7 @@ def push(request, _):
         "template_id": "Akw6PSGAcqzp0Ws12sv_Ug1HFaWRhS-6r2hJO0GezQo",
         "page": "pages/index",
         "touser": "o29zt5JTOPF2SB-JX_dGwDfFT1ak",
-        "data": {"key1": "value1", "key2": "value2"},
+        "data": {"上次记录体重": "value1", "上次记录时间": "value2"},
         "miniprogram_state": "trial",
         "lang": "zh_CN"
     }
